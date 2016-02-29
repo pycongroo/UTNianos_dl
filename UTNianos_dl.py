@@ -51,3 +51,12 @@ def get_attachments(post_url):
             'url': URL_BASE + att_tag[i].get('href')})
     print "Encontrados %s adjuntos!!!" % str(len(dict_list))
     return dict_list
+
+
+if (len(sys.argv) > 1):
+    posts = sys.argv[1:]
+    for post in posts:
+        download_attachments(post)
+else:
+    print("Debe ingresar las direcciones de los post separados por espacios!")
+    print("python UTNianos_dl.py [URL_POST]...")
