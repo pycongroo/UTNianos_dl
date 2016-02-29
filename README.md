@@ -1,6 +1,12 @@
 # UTNianos_dl
 Aplicacion para descarga de adjuntos del foro [utnianos](www.utnianos.com.ar)
 
+## Requerimientos
+- Esta aplicacion utiliza el paquete BeautifulSoup4
+```bash
+sudo pip install beautifulsoup4
+```
+
 ## Uso
 simplemente se ejecuta el siguiente comando
 ```bash
