@@ -33,6 +33,20 @@ def download_attachments(post_url):
                 path_post, attachments[i]['name']))
 
 
+def corregir_adjuntos(post_url):
+    """Otorga los nombres reales a los adjuntos
+    (Problema de la primera version)."""
+    path_post = post_url.rsplit('/')[-1]
+    attachments = get_attachments(post_url)
+    for i in range(len(attachments)):
+        print "cambiando de %s a %s" % (str(i), attachments[i]['name'])
+        old = '%s/%s/%s' % (DOWNLOAD_PATH, path_post, str(i))
+        new = '%s/%s/%s' % (DOWNLOAD_PATH, path_post, attachments[i]['name'])
+        print "Antiguo: %s" % old
+        print "Nuevo: %s" % new
+        os.rename(old, new)
+
+
 def get_attachments(post_url):
     """Obtiene los links de los adjuntos en el post."""
     dict_list = []
