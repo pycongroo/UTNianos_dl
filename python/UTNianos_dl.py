@@ -51,7 +51,7 @@ def get_attachments(post_url):
     """Obtiene los links de los adjuntos en el post."""
     dict_list = []
     utn_text = net.request_get(post_url).text
-    utn_soup = Bs(utn_text)
+    utn_soup = Bs(utn_text,'lxml')
     att_img = utn_soup.findAll('img', {'class': 'attachment'})
     img_links = map(lambda tag: URL_BASE + tag.get('src'), att_img)
     for i in range(len(img_links)):
